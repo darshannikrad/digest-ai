@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, User, Menu, Bell, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 interface HeaderProps {
   onSearch: (query: string) => void;
@@ -10,6 +12,8 @@ interface HeaderProps {
   isAuthenticated?: boolean;
   currentView: 'home' | 'personalized' | 'general';
   onViewChange: (view: 'home' | 'personalized' | 'general') => void;
+  currentLanguage: string;
+  onLanguageChange: (language: string) => void;
 }
 
 export const Header = ({ 
@@ -17,7 +21,9 @@ export const Header = ({
   onAuthClick, 
   isAuthenticated = false,
   currentView,
-  onViewChange 
+  onViewChange,
+  currentLanguage,
+  onLanguageChange 
 }: HeaderProps) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -82,6 +88,12 @@ export const Header = ({
 
           {/* User Actions */}
           <div className="flex items-center gap-2">
+            <LanguageSelector 
+              currentLanguage={currentLanguage}
+              onLanguageChange={onLanguageChange}
+            />
+            <ThemeToggle />
+            
             {isAuthenticated ? (
               <div className="flex items-center gap-2">
                 <Button variant="ghost" size="icon" className="relative">

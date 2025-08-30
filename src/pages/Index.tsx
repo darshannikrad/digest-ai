@@ -4,11 +4,13 @@ import { AuthModal } from "@/components/AuthModal";
 import { FeedSection } from "@/components/FeedSection";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Heart, Search, Sparkles, Globe, Clock } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<'home' | 'personalized' | 'general'>('home');
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const { currentLanguage, setCurrentLanguage } = useTranslation();
 
   // Mock data for articles
   const personalizedArticles = [
@@ -102,6 +104,8 @@ const Index = () => {
           onAuthClick={handleAuthClick}
           currentView={currentView}
           onViewChange={setCurrentView}
+          currentLanguage={currentLanguage}
+          onLanguageChange={setCurrentLanguage}
         />
         <main className="container mx-auto px-4 py-8">
           <FeedSection
@@ -125,6 +129,8 @@ const Index = () => {
           onAuthClick={handleAuthClick}
           currentView={currentView}
           onViewChange={setCurrentView}
+          currentLanguage={currentLanguage}
+          onLanguageChange={setCurrentLanguage}
         />
         <main className="container mx-auto px-4 py-8">
           <FeedSection
@@ -148,6 +154,8 @@ const Index = () => {
         onAuthClick={handleAuthClick}
         currentView={currentView}
         onViewChange={setCurrentView}
+        currentLanguage={currentLanguage}
+        onLanguageChange={setCurrentLanguage}
       />
       
       {/* Hero Section */}
