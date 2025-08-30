@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* News Aggregator Design System - Premium & Modern */
 
 @layer base {
   :root {
+    /* Background System */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
+    --background-secondary: 222 25% 97%;
+    
+    /* Card System */
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
+    --card-hover: 222 25% 98%;
+    
+    /* Primary Brand Colors - Deep Blue Theme */
+    --primary: 222 84% 15%;
     --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
+    --primary-light: 222 50% 25%;
+    --primary-glow: 222 80% 60%;
+    
+    /* News-specific Colors */
+    --news-accent: 267 89% 62%;
+    --news-accent-light: 267 50% 85%;
+    --tech-accent: 200 85% 55%;
+    --premium-gradient-start: 222 84% 15%;
+    --premium-gradient-end: 267 89% 62%;
+    
+    /* Semantic Colors */
+    --secondary: 222 25% 95%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
+    --muted: 222 20% 94%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
+    --accent: 222 25% 92%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
+    
+    /* Interactive States */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+    --border: 222 20% 88%;
+    --input: 222 20% 95%;
+    --ring: 222 84% 15%;
+    
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--premium-gradient-start)), hsl(var(--premium-gradient-end)));
+    --gradient-news: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--news-accent)));
+    --gradient-tech: linear-gradient(135deg, hsl(var(--tech-accent)), hsl(var(--news-accent)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--background-secondary)));
+    
+    /* Shadows & Effects */
+    --shadow-news: 0 4px 20px -8px hsl(var(--primary) / 0.25);
+    --shadow-card: 0 2px 12px -4px hsl(var(--primary) / 0.1);
+    --shadow-premium: 0 8px 30px -12px hsl(var(--news-accent) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
